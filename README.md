@@ -1,12 +1,31 @@
-# This is a project based on the the "PKLot – A robust dataset for parking lot classification" research, available on https://doi.org/10.1016/j.eswa.2015.02.009
-### I used the database available in the article to create a classifier using LBP and KNN with C++.
-### The project includes 4 main steps
-### 1 - Crop images (cropImages.cpp)
-### 2 - Generate histogram with LBP (LBPHistogram.cpp)
-### 3 - Split between training and test set (split_t_t_norm.cpp)
-### 4 - Apply KNN (knn.cpp)
+# Project based on "PKLot – A robust dataset for parking lot classification" research
+### Available at: https://doi.org/10.1016/j.eswa.2015.02.009
 
-### For step 1, I used the OpenCV library to crop the images accordigly to what the Autors described with the XML file provided. Also, I used libxml to process the data from the XML file.
-### On step 2, as I needed to process images, again I used the OpenCV lib to first calculate the LBP of the image using grey scale and then compute the LBP histogram to generate the features with 256 values
-### After storing the features on a CSV file, for the step 3 I splited data between train and test considering a 50/50 split, also, I have applied a normalization using the mix max method. This took into account that images from a particular day could not be shared between train and test sets.
-### For the last, I calculated the KNN for all the test values, reaching a 92.30% accuracy
+## Goal:
+### Create a classifier to identify whether a parking spot is empty or occupied.
+### Used the dataset from the article and implemented it using LBP (Local Binary Patterns) and KNN (K-Nearest Neighbors) in C++.
+
+## Project Steps:
+### 1 - Crop images (cropImages.cpp)
+### 2 - Generate LBP histogram (LBPHistogram.cpp)
+### 3 - Split data into training and test sets (split_t_t_norm.cpp)
+### 4 - Apply KNN classification (knn.cpp)
+
+### Implementation Details:
+### Step 1:
+### - Used OpenCV to crop images based on the coordinates provided in the XML file.
+### - Processed XML data using libxml.
+
+### Step 2:
+### - Used OpenCV to convert images to grayscale and compute LBP.
+### - Generated a 256-bin LBP histogram to extract features.
+### - Stored features in a CSV file.
+
+###Step 3:
+### - Split data 50/50 between training and test sets.
+### - Applied min-max normalization.
+### - Ensured images from the same day were not shared between sets to avoid bias.
+
+### Step 4:
+### - Implemented KNN classification.
+### - Achieved 92.30% accuracy on the test set.
